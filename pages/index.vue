@@ -3,7 +3,7 @@ import { menus } from '@/data/menus';
 
 const categories = [...new Set(menus.map((menu) => menu.category))];
 const newCategories = new Set(categories);
-console.log(newCategories);
+
 </script>
 
 <template>
