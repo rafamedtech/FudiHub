@@ -1,37 +1,43 @@
 <script setup>
 import { menus } from '@/data/menus';
 
-const categories = [...new Set(menus.map((menu) => menu.category))];
-const newCategories = new Set(categories);
+const categories = [...new Set(menus.map((item) => item.category))];
 
+const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).map((id) =>
+  categories.find((obj) => obj.id === id)
+);
 </script>
 
 <template>
   <main class="container min-h-screen px-2 py-4">
     <section class="mb-4 flex flex-col justify-center gap-2">
-      <h2 class="text-center text-3xl">Categorias</h2>
-      <section class="flex gap-2 overflow-x-scroll">
+      <h2 class="text-center text-3xl">Categorías</h2>
+      <section
+        class="flex gap-2 overflow-x-scroll lg:flex-wrap lg:justify-center lg:overflow-hidden"
+      >
         <NuxtLink
-          v-for="(category, index) in categories"
+          v-for="(category, index) in uniqueCategories"
           :key="index"
-          class="btn-secondary btn h-fit min-h-fit py-3"
+          class="btn-secondary btn flex h-fit min-h-fit gap-2 py-3"
           to="/"
         >
-          {{ category }}
+          <Icon :name="category.icon" size="32" class="text-black" />
+          <span>{{ category.name }}</span>
         </NuxtLink>
       </section>
     </section>
+    <div class="divider"></div>
     <section>
-      <h2 class="mb-2 text-center text-3xl">Restaurants</h2>
+      <h2 class="mb-2 text-center text-3xl">Restaurantes</h2>
 
-      <section class="flex flex-col items-center gap-4 px-2">
+      <section class="grid grid-cols-1 gap-4 px-2 lg:grid-cols-3">
         <NuxtLink
           v-for="menu in menus"
           :key="menu.id"
-          class="card w-96 rounded-lg shadow-custom "
+          class="card h-fit max-h-64 w-full rounded-lg shadow-custom"
           :to="`/${menu.id}`"
         >
-          <figure>
+          <figure class="h-1/2">
             <img :src="menu.banner" alt="Shoes" />
           </figure>
           <div class="card-body">
@@ -40,18 +46,14 @@ const newCategories = new Set(categories);
               <div class="badge-accent badge rounded-none">Nuevo</div>
             </h2>
             <!-- <p>If a dog chews shoes whose shoes does he choose?</p> -->
-            <div class="card-actions justify-end">
-              <div
-                class="badge-outline badge rounded-sm shadow-custom border-none bg-gray-50"
-              >
+            <!-- <div class="card-actions justify-end">
+              <div class="badge-outline badge rounded-sm border-none bg-gray-50 shadow-custom">
                 Fashion
               </div>
-              <div
-                class="badge-outline badge rounded-sm shadow-custom border-none bg-gray-50"
-              >
+              <div class="badge-outline badge rounded-sm border-none bg-gray-50 shadow-custom">
                 Products
               </div>
-            </div>
+            </div> -->
           </div>
         </NuxtLink>
       </section>
