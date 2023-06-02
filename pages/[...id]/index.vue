@@ -4,56 +4,98 @@ const route = useRoute();
 const menuId = route.params.id[0];
 // console.log(route.params.id[0]);
 const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId)));
-console.log(menu.value);
 </script>
 
 <template>
-  <main>
-    <div class="drawer">
-      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col">
-        <!-- Navbar -->
-        <div class="navbar w-full bg-base-300">
-          <div class="flex-none lg:hidden">
-            <label for="my-drawer-3" class="btn-ghost btn-square btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="inline-block h-6 w-6 stroke-current"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </label>
+  <main class="container px-2">
+    <h2 class="mb-2 text-xl">{{ menu.name }}</h2>
+    <section class="container">
+      <iframe
+        :src="menu.address"
+        height="200"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="mx-auto mb-2 w-full max-w-xl"
+      ></iframe>
+      <section class="mx-auto flex max-w-xl gap-2">
+        <span
+          v-for="(tag, index) in menu.tags"
+          :key="index"
+          class="badge h-fit rounded-md border-accent bg-accent py-2 text-yellow-950 shadow-custom"
+          >{{ tag }}</span
+        >
+      </section>
+    </section>
+
+    <section class="mb-28 mt-4">
+      <h2 class="mb-2 text-center text-xl">Menu</h2>
+      <section>
+        <section v-for="section in menu.menu" :key="section.id">
+          <div class="flex h-12 items-center justify-center bg-secondary">
+            <h3>{{ section.section }}</h3>
           </div>
-          <div class="mx-2 flex-1 px-2">{{ menu.name }}</div>
-          <div class="hidden flex-none lg:block">
-            <ul class="menu menu-horizontal">
-              <!-- Navbar menu content here -->
-              <li><a>Navbar Item 1</a></li>
-              <li><a>Navbar Item 2</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- Page content here -->
-        <section class="container">
-          <h2 class="mt-4 w-full text-center text-xl">Categorias</h2>
-          <section></section>
+          <section v-for="item in section.items" :key="item.id" class="py-4">
+            <h4 class="text-lg">{{ item.name }}</h4>
+            <p>{{ item.description }}</p>
+          </section>
         </section>
-      </div>
-      <div class="drawer-side">
-        <label for="my-drawer-3" class="drawer-overlay"></label>
-        <ul class="menu w-80 bg-base-100 p-4">
-          <!-- Sidebar content here -->
-          <li><a>Sidebar Item 1</a></li>
-          <li><a>Sidebar Item 2</a></li>
-        </ul>
-      </div>
+      </section>
+    </section>
+
+    <div class="btm-nav border-t">
+      <button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+          />
+        </svg>
+        <span class="btm-nav-label">Home</span>
+      </button>
+      <button class="active">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span class="btm-nav-label">Warnings</span>
+      </button>
+      <button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+          />
+        </svg>
+        <span class="btm-nav-label">Statics</span>
+      </button>
     </div>
   </main>
 </template>

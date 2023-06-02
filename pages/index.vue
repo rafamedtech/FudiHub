@@ -26,7 +26,9 @@ const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).ma
         </NuxtLink>
       </section>
     </section>
+
     <div class="divider"></div>
+
     <section>
       <h2 class="mb-2 text-center text-3xl">Restaurantes</h2>
 
@@ -45,15 +47,6 @@ const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).ma
               {{ menu.name }}
               <div class="badge-accent badge rounded-none">Nuevo</div>
             </h2>
-            <!-- <p>If a dog chews shoes whose shoes does he choose?</p> -->
-            <!-- <div class="card-actions justify-end">
-              <div class="badge-outline badge rounded-sm border-none bg-gray-50 shadow-custom">
-                Fashion
-              </div>
-              <div class="badge-outline badge rounded-sm border-none bg-gray-50 shadow-custom">
-                Products
-              </div>
-            </div> -->
           </div>
         </NuxtLink>
       </section>
