@@ -4,11 +4,29 @@ const route = useRoute();
 const menuId = route.params.id[0];
 // console.log(route.params.id[0]);
 const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId)));
+const date = Date.now();
 </script>
 
 <template>
   <main class="container px-2">
-    <h2 class="mb-2 text-xl">{{ menu.name }}</h2>
+    <section class="flex items-center justify-center">
+      <span class="text-xs"
+        >Actualizado en:
+        {{
+          new Date(date).toLocaleString('es-MX', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })
+        }}</span
+      >
+    </section>
+    <section class="flex items-center gap-2">
+      <button class="my-4 flex items-center gap-2">
+        <Icon name="ooui:arrow-previous-ltr" class="text-primary" size="28" />
+      </button>
+      <h2 class="text-xl">{{ menu.name }}</h2>
+    </section>
     <section class="container">
       <iframe
         :src="menu.address"
@@ -29,10 +47,26 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
       </section>
     </section>
 
-    <section class="mb-28 mt-4">
+    <section class="mx-auto mb-28 mt-4 lg:max-w-xl">
       <h2 class="mb-2 text-center text-xl">Menu</h2>
       <section>
-        <section v-for="section in menu.menu" :key="section.id">
+        <div class="carousel-center carousel max-w-md space-x-4">
+          <!-- <div class="carousel-item">
+            <img src="/images/stock/photo-1559703248-dcaaec9fab78.jpg" class="rounded-box" />
+          </div> -->
+          <section v-for="section in menu.menu" :key="section.id" class="carousel-item w-4/5">
+            <div class="w-full">
+              <div class="flex h-12 items-center justify-center bg-secondary">
+                <h3>{{ section.section }}</h3>
+              </div>
+              <section v-for="item in section.items" :key="item.id" class="flex flex-col py-4">
+                <h4 class="text-lg">{{ item.name }}</h4>
+                <p>{{ item.description }}</p>
+              </section>
+            </div>
+          </section>
+        </div>
+        <!-- <section v-for="section in menu.menu" :key="section.id">
           <div class="flex h-12 items-center justify-center bg-secondary">
             <h3>{{ section.section }}</h3>
           </div>
@@ -40,11 +74,11 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
             <h4 class="text-lg">{{ item.name }}</h4>
             <p>{{ item.description }}</p>
           </section>
-        </section>
+        </section> -->
       </section>
     </section>
 
-    <div class="btm-nav border-t">
+    <div class="btm-nav border-t lg:hidden">
       <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
