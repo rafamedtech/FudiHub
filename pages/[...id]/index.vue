@@ -30,7 +30,7 @@ const date = Date.now();
           @click="$router.back()"
         />
       </button>
-      <h2 class="text-xl">{{ menu.name }}</h2>
+      <h2 class="text-2xl">{{ menu.name }}</h2>
     </section>
     <section class="container">
       <figure class="h-40 mx-auto mb-2 w-full max-w-xl">
@@ -69,7 +69,7 @@ const date = Date.now();
     </section>
 
     <section class="mx-auto mt-4 lg:max-w-xl">
-      <h2 class="mb-2 text-center text-xl">Menu</h2>
+      <h2 class="mb-2 text-center text-2xl">Menu</h2>
       <section class="mb-2 flex w-full items-center justify-center gap-4">
         <Icon name="solar:arrow-left-outline" class="animate-pulse text-primary" />
         <span class="text-xs">Desliza para cambiar de seccion</span>
