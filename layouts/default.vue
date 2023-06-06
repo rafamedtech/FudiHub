@@ -4,7 +4,11 @@
   <main>
     <div class="container navbar relative bg-base-100 px-2 pb-0">
       <div class="flex-1">
-        <Icon name="material-symbols:restaurant-rounded" size="28" class="text-primary" />
+        <Icon
+          name="streamline:food-kitchenware-fork-spoon-fork-spoon-food-dine-cook-utensils-eat-restaurant-dining"
+          size="28"
+          class="text-primary"
+        />
         <a class="btn-ghost btn pl-2 text-base font-medium normal-case">FudiHub</a>
       </div>
 
