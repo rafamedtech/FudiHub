@@ -14,9 +14,9 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
       </h2>
       <img :src="menu.banner" class="h-full w-full object-cover object-top brightness-50" alt="" />
     </section>
-    <div class="h-screen carousel carousel-vertical">
-      <div v-for="section in menu.menu" :key="section.id" class="carousel-item h-full">
-        <div class="h-full max-h-[40rem] w-full">
+    <div class="h-full">
+      <div v-for="section in menu.menu" :key="section.id" class="h-full">
+        <div class="h-full w-full">
           <div class="sticky top-0 flex h-12 w-full items-center justify-center bg-secondary">
             <h3>{{ section.section }}</h3>
           </div>
