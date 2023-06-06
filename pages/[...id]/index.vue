@@ -68,18 +68,20 @@ const date = Date.now();
       </section> -->
     </section>
 
-    <section class="mx-auto mt-4 lg:max-w-xl">
-      <h2 class="mb-2 text-center text-2xl">Menu</h2>
-      <section class="mb-2 flex w-full items-center justify-center gap-4">
+    <section class="mx-auto mt-4 lg:max-w-xl flex justify-center">
+      <NuxtLink
+        :to="`/${menuId}/menu`"
+        class="mb-2 text-center text-2xl btn normal-case btn-secondary"
+        >Ver Menu</NuxtLink
+      >
+      <!-- <section class="mb-2 flex w-full items-center justify-center gap-4">
         <Icon name="solar:arrow-left-outline" class="animate-pulse text-primary" />
         <span class="text-xs">Desliza para cambiar de seccion</span>
         <Icon name="solar:arrow-right-outline" class="animate-pulse text-primary" />
-      </section>
-
+      </section> -->
+      <!-- 
       <div class="carousel-center carousel max-w-md space-x-4">
-        <!-- <div class="carousel-item">
-            <img src="/images/stock/photo-1559703248-dcaaec9fab78.jpg" class="rounded-box" />
-          </div> -->
+
         <section
           v-for="section in menu.menu"
           :key="section.id"
@@ -102,7 +104,7 @@ const date = Date.now();
             </section>
           </div>
         </section>
-      </div>
+      </div> -->
       <!-- <section v-for="section in menu.menu" :key="section.id">
           <div class="flex h-12 items-center justify-center bg-secondary">
             <h3>{{ section.section }}</h3>
