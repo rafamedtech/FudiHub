@@ -20,8 +20,8 @@ module.exports = {
         custom: '0 3px 12px rgba(0, 0, 0, .07), 0 1px 4px rgba(0, 0, 0, .07)',
       },
       colors: {
-        primary: '#cface8',
-        secondary: '#abe6bb',
+        primary: '#647eff',
+        secondary: '#00dc82',
         accent: '#f8d787',
       },
       fontFamily: {
@@ -44,9 +44,9 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: '#cface8',
+          primary: '#647eff',
 
-          secondary: '#abe6bb',
+          secondary: '#00dc82',
 
           accent: '#f8d787',
 

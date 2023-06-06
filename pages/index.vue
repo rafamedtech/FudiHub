@@ -39,13 +39,15 @@ const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).ma
           class="card h-fit max-h-64 w-full rounded-lg shadow-custom"
           :to="`/${menu.id}`"
         >
-          <figure class="h-1/2">
-            <img :src="menu.banner" alt="Shoes" />
+          <figure class="h-40">
+            <img :src="menu.banner" alt="Shoes" class="object-cover object-top h-full w-full" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">
               {{ menu.name }}
-              <div class="badge-accent badge rounded-none">Nuevo</div>
+              <div class="badge bg-transparent border-secondary py-3 text-black rounded-none">
+                Nuevo
+              </div>
             </h2>
           </div>
         </NuxtLink>
