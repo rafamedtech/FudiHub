@@ -24,7 +24,7 @@ const date = Date.now();
     <section class="flex items-center gap-2">
       <button class="my-4 flex items-center gap-2">
         <Icon
-          name="ooui:arrow-previous-ltr"
+          name="solar:arrow-left-outline"
           class="text-primary"
           size="28"
           @click="$router.back()"
@@ -37,14 +37,24 @@ const date = Date.now();
         <img :src="menu.banner" alt="" class="h-full w-full object-cover object-top" />
       </figure>
       <section class="flex justify-center max-w-xl gap-4">
-        <NuxtLink><Icon name="logos:facebook" size="32" /></NuxtLink>
-        <NuxtLink><Icon name="skill-icons:instagram" size="32" /></NuxtLink>
-        <NuxtLink><Icon name="logos:tiktok-icon" size="32" /></NuxtLink>
+        <NuxtLink class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:facebook-outline" size="32" class="text-primary" />
+          <span class="text-xs">Facebook</span></NuxtLink
+        >
+        <NuxtLink class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:instagram-outline" size="32" class="text-primary" />
+          <span class="text-xs">Instagram</span></NuxtLink
+        >
+        <NuxtLink class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:tiktok-outline" size="32" class="text-primary" />
+          <span class="text-xs">Tiktok</span></NuxtLink
+        >
         <!-- You can open the modal using ID.showModal() method -->
         <!-- The button to open modal -->
-        <label for="my_modal_6" class="text-primary"
-          ><Icon name="material-symbols:location-on-rounded" size="32"
-        /></label>
+        <label for="my_modal_6" class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:pin-outline" size="32" class="text-primary" />
+          <span class="text-xs">Ubicacion</span></label
+        >
 
         <LocationModal :title="menu.name" :location="menu.address" />
       </section>
@@ -61,9 +71,9 @@ const date = Date.now();
     <section class="mx-auto mt-4 lg:max-w-xl">
       <h2 class="mb-2 text-center text-xl">Menu</h2>
       <section class="mb-2 flex w-full items-center justify-center gap-4">
-        <Icon name="ooui:arrow-previous-ltr" class="animate-pulse text-primary" />
+        <Icon name="solar:arrow-left-outline" class="animate-pulse text-primary" />
         <span class="text-xs">Desliza para cambiar de seccion</span>
-        <Icon name="ooui:arrow-next-ltr" class="animate-pulse text-primary" />
+        <Icon name="solar:arrow-right-outline" class="animate-pulse text-primary" />
       </section>
 
       <div class="carousel-center carousel max-w-md space-x-4">
@@ -85,8 +95,8 @@ const date = Date.now();
               class="flex justify-between px-2 py-4"
             >
               <div>
-                <h4 class="text-lg font-bold">{{ item.name }}</h4>
-                <p class="text-xs">{{ item.description }}</p>
+                <h4 class="text-lg">{{ item.name }}</h4>
+                <p class="text-xs italic text-gray-500">{{ item.description }}</p>
               </div>
               <span class="font-bold">${{ item.price }}</span>
             </section>
