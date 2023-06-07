@@ -6,6 +6,16 @@ const categories = [...new Set(menus.map((item) => item.category))];
 const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).map((id) =>
   categories.find((obj) => obj.id === id)
 );
+
+function setNewBadge(rest) {
+  const currentMonth = new Date(Date.now()).getMonth();
+  const restMonth = new Date(rest).getMonth();
+
+  if (currentMonth === restMonth) {
+    return true;
+  }
+  return false;
+}
 </script>
 
 <template>
@@ -45,7 +55,10 @@ const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).ma
           <div class="card-body">
             <h2 class="card-title">
               {{ menu.name }}
-              <div class="badge bg-transparent border-secondary py-3 text-black rounded-none">
+              <div
+                v-if="setNewBadge(menu.createdAt)"
+                class="badge bg-transparent border-accent py-3 text-white rounded-none"
+              >
                 Nuevo
               </div>
             </h2>

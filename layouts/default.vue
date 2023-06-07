@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <main>
+  <main class="text-white">
     <div class="container navbar relative bg-base-100 px-2 pb-0">
       <div class="flex-1">
         <Icon

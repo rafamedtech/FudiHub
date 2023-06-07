@@ -25,40 +25,64 @@ const date = Date.now();
       <button class="my-4 flex items-center gap-2">
         <Icon
           name="solar:arrow-left-outline"
-          class="text-primary"
+          class="text-accent"
           size="28"
           @click="$router.back()"
         />
       </button>
-      <h2 class="text-2xl">{{ menu.name }}</h2>
+
+      <h2 class="text-2xl w-auto">{{ menu.name }}</h2>
     </section>
     <section class="container">
-      <figure class="h-40 mx-auto mb-2 w-full max-w-xl">
-        <img :src="menu.banner" alt="" class="h-full w-full object-cover object-top" />
+      <figure class="h-40 mx-auto mb-8 w-full max-w-full lg:h-[15rem]">
+        <img
+          :src="menu.banner"
+          alt=""
+          class="h-full w-full object-cover object-top lg:object-center"
+        />
       </figure>
-      <section class="flex justify-center max-w-xl gap-4">
-        <NuxtLink class="flex flex-col items-center gap-2"
-          ><Icon name="teenyicons:facebook-outline" size="32" class="text-primary" />
+
+      <p class="text-center text-2xl">Horario:</p>
+      <span class="text-xs text-center block" v-for="(day, index) in menu.schedule" :key="index">{{
+        day
+      }}</span>
+
+      <!-- Social links -->
+      <section class="flex justify-center max-w-xl mt-4 gap-4 mx-auto">
+        <NuxtLink
+          v-if="menu.facebook"
+          :to="menu.facebook"
+          target="_blank"
+          class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:facebook-outline" size="32" class="text-accent" />
           <span class="text-xs">Facebook</span></NuxtLink
         >
-        <NuxtLink class="flex flex-col items-center gap-2"
-          ><Icon name="teenyicons:instagram-outline" size="32" class="text-primary" />
+        <NuxtLink
+          v-if="menu.instagram"
+          :to="menu.instagram"
+          target="_blank"
+          class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:instagram-outline" size="32" class="text-accent" />
           <span class="text-xs">Instagram</span></NuxtLink
         >
-        <NuxtLink class="flex flex-col items-center gap-2"
-          ><Icon name="teenyicons:tiktok-outline" size="32" class="text-primary" />
+        <NuxtLink
+          v-if="menu.tiktok"
+          :to="menu.tiktok"
+          target="_blank"
+          class="flex flex-col items-center gap-2"
+          ><Icon name="teenyicons:tiktok-outline" size="32" class="text-accent" />
           <span class="text-xs">Tiktok</span></NuxtLink
         >
-        <!-- You can open the modal using ID.showModal() method -->
-        <!-- The button to open modal -->
+
         <label for="my_modal_6" class="flex flex-col items-center gap-2"
-          ><Icon name="teenyicons:pin-outline" size="32" class="text-primary" />
+          ><Icon name="teenyicons:pin-outline" size="32" class="text-accent" />
           <span class="text-xs">Ubicacion</span></label
         >
 
         <LocationModal :title="menu.name" :location="menu.address" />
       </section>
-      <!-- <section class="mx-auto flex max-w-xl gap-2">
+      <!-- <section class="mx-auto flex mt-2 max-w-xl items-center gap-2">
+        <h3>Tags:</h3>
         <span
           v-for="(tag, index) in menu.tags"
           :key="index"
@@ -68,11 +92,11 @@ const date = Date.now();
       </section> -->
     </section>
 
-    <section class="mx-auto mt-4 lg:max-w-xl flex justify-center">
+    <section class="mx-auto mt-8 lg:max-w-xl flex justify-center">
       <NuxtLink
         :to="`/${menuId}/menu`"
-        class="mb-2 text-center text-2xl btn normal-case btn-secondary"
-        >Ver Menu</NuxtLink
+        class="mb-2 text-center flex items-center gap-2 text-2xl btn normal-case btn-secondary"
+        ><Icon name="teenyicons:text-document-outline" />Ver Menu</NuxtLink
       >
       <!-- <section class="mb-2 flex w-full items-center justify-center gap-4">
         <Icon name="solar:arrow-left-outline" class="animate-pulse text-primary" />
@@ -114,6 +138,12 @@ const date = Date.now();
             <p>{{ item.description }}</p>
           </section>
         </section> -->
+    </section>
+
+    <div class="divider mt-20"></div>
+
+    <section class="w-full">
+      <h3 class="text-2xl text-center">Lugares similares</h3>
     </section>
 
     <div class="btm-nav hidden border-t">

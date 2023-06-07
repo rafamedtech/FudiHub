@@ -8,13 +8,26 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
 
 <template>
   <main>
-    <section class="h-40 relative flex items-center">
-      <h2 class="text-2xl text-center px-2 mb-4 absolute inset-x-0 w-2/3 mx-auto text-white z-10">
-        Menu de {{ menu.name }}
+    <section class="h-40 relative flex items-center container">
+      <h2
+        class="text-2xl text-center px-2 mb-4 absolute flex justify-center items-center gap-4 inset-x-0 w-2/3 mx-auto text-white z-10"
+      >
+        <button class="inline-flex absolute -left-8 items-center gap-2">
+          <Icon
+            name="solar:arrow-left-outline"
+            class="text-accent"
+            size="28"
+            @click="$router.back()"
+          /></button
+        >Menu de {{ menu.name }}
       </h2>
-      <img :src="menu.banner" class="h-full w-full object-cover object-top brightness-50" alt="" />
+      <img
+        :src="menu.banner"
+        class="h-full w-full object-cover object-top brightness-50 mb-2"
+        alt=""
+      />
     </section>
-    <div class="h-full">
+    <div class="h-full container">
       <div v-for="section in menu.menu" :key="section.id" class="h-full">
         <div class="h-full w-full">
           <div class="sticky top-0 flex h-12 w-full items-center justify-center bg-secondary">
