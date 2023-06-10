@@ -2,14 +2,10 @@
 
 <template>
   <main class="text-white">
-    <div class="container navbar relative bg-base-100 px-2 pb-0">
+    <div class="container navbar relative px-2 pb-0">
       <div class="flex-1">
-        <Icon
-          name="streamline:food-kitchenware-fork-spoon-fork-spoon-food-dine-cook-utensils-eat-restaurant-dining"
-          size="28"
-          class="text-primary"
-        />
-        <a class="btn-ghost btn pl-2 text-base font-medium normal-case">FudiHub</a>
+        <img src="@/assets/image/logo-fudimenu.png" alt="" class="w-8" />
+        <a class="btn-ghost btn pl-2 text-base font-medium normal-case">FudiMenu</a>
       </div>
 
       <div class="dropdown-end dropdown flex-none lg:hidden">
@@ -29,24 +25,21 @@
               ></path>
             </svg></button
         ></label>
-        <ul
-          tabindex="0"
-          class="dropdown-content menu w-52 rounded-lg bg-base-100 p-2 shadow-custom"
-        >
+        <ul tabindex="0" class="dropdown-content menu w-52 rounded-lg p-2 shadow-custom">
           <li><a>Eventos</a></li>
           <li><a>Contacto</a></li>
         </ul>
       </div>
 
       <div class="hidden flex-none lg:flex">
-        <ul tabindex="0" class="flex w-52 justify-end gap-4 rounded-lg bg-base-100 p-2">
+        <ul tabindex="0" class="flex w-52 justify-end gap-4 rounded-lg p-2">
           <li><a>Eventos</a></li>
           <li><a>Contacto</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="divider m-0"></div>
+    <div class="divider before:bg-base-100/50 after:bg-base-100/50 m-0"></div>
     <slot></slot>
   </main>
 </template>

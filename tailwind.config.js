@@ -21,9 +21,9 @@ module.exports = {
         custom: '0 3px 12px rgba(0, 0, 0, .07), 0 1px 4px rgba(0, 0, 0, .07)',
       },
       colors: {
-        primary: '#ff79c6',
-        secondary: '#bd93f9',
-        accent: '#ffb86c',
+        primary: '#51B7E1',
+        secondary: '#BD93F9',
+        accent: '#FF79C6',
       },
       fontFamily: {
         lexend: 'Lexend Mega, sans-serif',
@@ -43,15 +43,11 @@ module.exports = {
 
   daisyui: {
     themes: [
-      'dracula',
-
       {
         mytheme: {
-          primary: '#647eff',
-
-          secondary: '#00dc82',
-
-          accent: '#f8d787',
+          primary: '#51B7E1',
+          secondary: '#BD93F9',
+          accent: '#FF79C6',
 
           neutral: '#3D4451',
 

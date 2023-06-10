@@ -6,16 +6,6 @@ const categories = [...new Set(menus.map((item) => item.category))];
 const uniqueCategories = Array.from(new Set(categories.map((obj) => obj.id))).map((id) =>
   categories.find((obj) => obj.id === id)
 );
-
-function setNewBadge(rest) {
-  const currentMonth = new Date(Date.now()).getMonth();
-  const restMonth = new Date(rest).getMonth();
-
-  if (currentMonth === restMonth) {
-    return true;
-  }
-  return false;
-}
 </script>
 
 <template>
@@ -43,27 +33,7 @@ function setNewBadge(rest) {
       <h2 class="mb-2 text-center text-3xl">Restaurantes</h2>
 
       <section class="grid grid-cols-1 gap-4 px-2 lg:grid-cols-3">
-        <NuxtLink
-          v-for="menu in menus"
-          :key="menu.id"
-          class="card h-fit max-h-64 w-full rounded-lg shadow-custom"
-          :to="`/${menu.id}`"
-        >
-          <figure class="h-40">
-            <img :src="menu.banner" alt="Shoes" class="object-cover object-top h-full w-full" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">
-              {{ menu.name }}
-              <div
-                v-if="setNewBadge(menu.createdAt)"
-                class="badge bg-transparent border-accent py-3 text-white rounded-none"
-              >
-                Nuevo
-              </div>
-            </h2>
-          </div>
-        </NuxtLink>
+        <RestaurantCard v-for="menu in menus" :key="menu.id" :menu="menu" />
       </section>
     </section>
   </main>

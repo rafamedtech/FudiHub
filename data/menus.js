@@ -18,8 +18,8 @@ export const menus = [
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.2774861497933!2d-117.01787328884396!3d32.518735097031445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9495148932993%3A0xf40f269e74154863!2sEl%20Local%20by%20Slowburger!5e0!3m2!1ses!2smx!4v1685666690107!5m2!1ses!2smx',
     category: {
       id: 1,
-      name: 'Local',
-      icon: 'material-symbols:house-outline-rounded',
+      name: 'Restaurant-Bar',
+      icon: 'fluent-emoji-high-contrast:beer-mug',
     },
     tags: ['Bar', 'Hamburguesas'],
     menu: [

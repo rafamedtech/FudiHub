@@ -11,7 +11,7 @@ defineProps<Props>();
     <!-- Put this part before </body> tag -->
     <input type="checkbox" id="my_modal_6" class="modal-toggle" />
     <div class="modal">
-      <div class="modal-box rounded-none">
+      <div class="modal-box bg-[#1a1a1a] rounded-box">
         <h3 class="font-bold text-lg">Ubicacion de {{ title }}</h3>
         <div>
           <iframe
@@ -26,7 +26,7 @@ defineProps<Props>();
         </div>
 
         <div class="modal-action absolute -top-6 right-0">
-          <label for="my_modal_6" class="btn btn-square rounded-none btn-accent">X</label>
+          <label for="my_modal_6" class="btn rounded-xl btn-accent">X</label>
         </div>
       </div>
     </div>

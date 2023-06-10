@@ -31,24 +31,34 @@ const date = Date.now();
         />
       </button>
 
-      <h2 class="text-2xl w-auto">{{ menu.name }}</h2>
+      <div>
+        <h2 class="text-2xl w-auto">{{ menu.name }}</h2>
+      </div>
     </section>
     <section class="container">
-      <figure class="h-40 mx-auto mb-8 w-full max-w-full lg:h-[15rem]">
+      <figure class="h-40 mx-auto mb-4 w-full max-w-full lg:h-[15rem] rounded-xl">
         <img
           :src="menu.banner"
           alt=""
-          class="h-full w-full object-cover object-top lg:object-center"
+          class="h-full w-full object-cover object-top lg:object-center rounded-xl"
         />
       </figure>
 
-      <p class="text-center text-2xl">Horario:</p>
+      <div class="text-xs flex gap-2 mb-4 items-center justify-center flex-col">
+        <span>Categoria:</span>
+        <div class="flex gap-1 btn btn-secondary">
+          <Icon :name="menu.category.icon" size="28" />
+          <span class="text-black">{{ menu.category.name }}</span>
+        </div>
+      </div>
+
+      <p class="text-center text-2xl text-primary">Horario:</p>
       <span class="text-xs text-center block" v-for="(day, index) in menu.schedule" :key="index">{{
         day
       }}</span>
 
       <!-- Social links -->
-      <section class="flex justify-center max-w-xl mt-4 gap-4 mx-auto">
+      <section class="flex justify-center max-w-xl mt-4 gap-4">
         <NuxtLink
           v-if="menu.facebook"
           :to="menu.facebook"
@@ -95,8 +105,8 @@ const date = Date.now();
     <section class="mx-auto mt-8 lg:max-w-xl flex justify-center">
       <NuxtLink
         :to="`/${menuId}/menu`"
-        class="mb-2 text-center flex items-center gap-2 text-2xl btn normal-case btn-secondary"
-        ><Icon name="teenyicons:text-document-outline" />Ver Menu</NuxtLink
+        class="mb-2 text-center flex items-center gap-2 btn btn-primary text-sm uppercase"
+        ><Icon name="solar:bill-list-outline" size="28" />Ver Menu</NuxtLink
       >
       <!-- <section class="mb-2 flex w-full items-center justify-center gap-4">
         <Icon name="solar:arrow-left-outline" class="animate-pulse text-primary" />

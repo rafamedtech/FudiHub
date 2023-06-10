@@ -30,7 +30,9 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
     <div class="h-full container">
       <div v-for="section in menu.menu" :key="section.id" class="h-full">
         <div class="h-full w-full">
-          <div class="sticky top-0 flex h-12 w-full items-center justify-center bg-secondary">
+          <div
+            class="sticky top-0 flex h-12 w-full items-center justify-center bg-[#1a1a1a] rounded-xl"
+          >
             <h3>{{ section.section }}</h3>
           </div>
           <section
@@ -39,10 +41,10 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
             class="flex justify-between px-2 py-4"
           >
             <div>
-              <h4 class="text-lg">{{ item.name }}</h4>
-              <p class="text-xs italic text-gray-500">{{ item.description }}</p>
+              <h4 class="text-lg text-secondary">{{ item.name }}</h4>
+              <p class="text-xs italic">{{ item.description }}</p>
             </div>
-            <span class="font-bold">${{ item.price }}</span>
+            <span class="font-bold text-accent">${{ item.price }}</span>
           </section>
         </div>
       </div>
