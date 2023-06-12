@@ -150,7 +150,7 @@ const date = Date.now();
         </section> -->
     </section>
 
-    <div class="divider mt-20"></div>
+    <div class="divider mt-14"></div>
 
     <section class="w-full">
       <h3 class="text-2xl text-center">Lugares similares</h3>

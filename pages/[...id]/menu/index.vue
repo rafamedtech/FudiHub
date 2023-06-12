@@ -18,8 +18,11 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
             class="text-accent"
             size="28"
             @click="$router.back()"
-          /></button
-        >Menu de {{ menu.name }}
+          />
+        </button>
+        <p>
+          Menu de <span class="font-bold text-primary">{{ menu.name }}</span>
+        </p>
       </h2>
       <img
         :src="menu.banner"
@@ -31,7 +34,7 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
       <div v-for="section in menu.menu" :key="section.id" class="h-full">
         <div class="h-full w-full">
           <div
-            class="sticky top-0 flex h-12 w-full items-center justify-center bg-[#1a1a1a] rounded-xl"
+            class="sticky top-0 flex h-12 w-full items-center justify-center bg-[#1a1a1a] rounded-xl text-xl"
           >
             <h3>{{ section.section }}</h3>
           </div>
@@ -44,7 +47,7 @@ const menu = computed(() => menus.find((invoice) => invoice.id === Number(menuId
               <h4 class="text-lg text-secondary">{{ item.name }}</h4>
               <p class="text-xs italic">{{ item.description }}</p>
             </div>
-            <span class="font-bold text-accent">${{ item.price }}</span>
+            <span class="font-bold text-primary">${{ item.price }}</span>
           </section>
         </div>
       </div>

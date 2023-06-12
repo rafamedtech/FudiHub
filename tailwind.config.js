@@ -26,7 +26,7 @@ module.exports = {
         accent: '#FF79C6',
       },
       fontFamily: {
-        lexend: 'Lexend Mega, sans-serif',
+        soon: '"Coming Soon", cursive',
       },
     },
   },

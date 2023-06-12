@@ -25,7 +25,10 @@
               ></path>
             </svg></button
         ></label>
-        <ul tabindex="0" class="dropdown-content menu w-52 rounded-lg p-2 shadow-custom">
+        <ul
+          tabindex="0"
+          class="dropdown-content bg-[#282a36] menu w-52 rounded-lg p-2 shadow-custom"
+        >
           <li><a>Eventos</a></li>
           <li><a>Contacto</a></li>
         </ul>
